@@ -1,5 +1,8 @@
 import React from 'react';
-import { ControlLabel } from 'react-bootstrap'
+import { ControlLabel, Button } from 'react-bootstrap';
+import uuid from 'uuid';
+import { connect } from 'react-redux';
+import { addProject } from '../actions/projects';
 
 class CreateProject extends React.Component {
   state = {
@@ -11,19 +14,33 @@ class CreateProject extends React.Component {
   }
 
   handleChange(event) {
-    console.log(event.target.name)
     this.setState({ [event.target.name]: event.target.value });
+  }
+
+  handleOnSubmit = event => {
+    event.preventDefault();
+    const project = Object.assign({}, this.state, { id: uuid() });
+    this.props.addProject(project);
+    this.setState({
+      name: '',
+      category: '',
+      notes: '',
+      startBy: '',
+      finishBy: '',
+    });
   }
 
   render() {
     return (
-      <form className='container'>
-          <ControlLabel>Project Name:</ControlLabel>
+      <form onSubmit={e => this.handleOnSubmit(e)} className='container'>
+          <h1>Create New Project</h1>
+          <br></br>
+          <ControlLabel >Project Name:</ControlLabel>
           <div className='form-group'>
             <input
               type="text"
               name='name'
-              value={this.state.value}
+              value={this.state.name}
               onChange={event => this.handleChange(event)}
             />
           </div>
@@ -33,7 +50,7 @@ class CreateProject extends React.Component {
             <input
               type="text"
               name='category'
-              value={this.state.value}
+              value={this.state.category}
               onChange={event => this.handleChange(event)}
             />
           </div>
@@ -44,7 +61,7 @@ class CreateProject extends React.Component {
               name='notes'
               rows="5"
               cols="70"
-              value={this.state.value}
+              value={this.state.notes}
               onChange={event => this.handleChange(event)}
             />
           </div>
@@ -53,7 +70,7 @@ class CreateProject extends React.Component {
           <div className='form-group'>
             <input
               name='startBy'
-              value={this.state.value}
+              value={this.state.startBy}
               onChange={event => this.handleChange(event)}/>
           </div>
 
@@ -61,14 +78,13 @@ class CreateProject extends React.Component {
           <div className='form-group'>
             <input
               name='finishBy'
-              value={this.state.value}
+              value={this.state.finishBy}
               onChange={event => this.handleChange(event)}/>
           </div>
+          <Button type='submit' bsStyle="primary">Submit</Button>
       </form>
-
-
     )
   }
 }
 
-export default CreateProject
+export default connect(null, { addProject })(CreateProject);

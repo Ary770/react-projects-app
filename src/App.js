@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, NavLink, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import WelcomeTron from './components/WelcomeTron';
 import CreateProject from './components/CreateProject';
 import NavBar from './components/NavBar';
