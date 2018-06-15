@@ -12,7 +12,7 @@ const NavBar = () => {
       </Navbar.Header>
       <Nav>
         <NavItem>
-          <NavLink to="projects/new">New Project</NavLink>
+          <NavLink to="/projects/new">New Project</NavLink>
         </NavItem>
         <NavItem>
           <NavLink to="/categories">Categories</NavLink>
