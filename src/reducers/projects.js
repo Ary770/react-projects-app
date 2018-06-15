@@ -1,7 +1,6 @@
 export default (state = [], action) => {
   switch (action.type) {
     case 'ADD_PROJECT':
-      console.log(state)
       return state.concat(action.project);
     case 'REMOVE_PROJECT':
       return state.filter(project => project.id !==action.projectId);

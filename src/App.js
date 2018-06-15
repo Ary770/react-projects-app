@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import WelcomeTron from './components/WelcomeTron';
-import CreateProject from './components/CreateProject';
 import NavBar from './components/NavBar';
-import Projects from './components/Projects';
+import ProjectsPage from './components/ProjectsPage';
 
 class App extends Component {
   render() {
@@ -13,8 +12,7 @@ class App extends Component {
           <div>
             <NavBar/>
             <Route exact path="/" component={WelcomeTron} />
-            <Route exact path="/projects" component={Projects} />
-            <Route exact path="/new" component={CreateProject} />
+            <Route path="/projects" component={ProjectsPage} />
           </div>
         </Router>
       </div>

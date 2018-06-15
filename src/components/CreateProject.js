@@ -21,13 +21,7 @@ class CreateProject extends React.Component {
     event.preventDefault();
     const project = Object.assign({}, this.state, { id: uuid() });
     this.props.addProject(project);
-    this.setState({
-      name: '',
-      category: '',
-      notes: '',
-      startBy: '',
-      finishBy: '',
-    });
+    this.props.history.push('/projects');
   }
 
   render() {
