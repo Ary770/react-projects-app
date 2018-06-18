@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Panel } from 'react-bootstrap';
 
 const ProjectShow = ({ project }) => {
   let category = null;
@@ -8,28 +9,36 @@ const ProjectShow = ({ project }) => {
   let finishBy = null;
 
   if (project.category !== "") {
-    category = <div><h3>Category:</h3><p>{project.category}</p></div>
+    category = <div><h4>Category:</h4><p>{project.category}</p></div>
   }
 
   if (project.notes !== "") {
-    notes = <div><h3>Notes:</h3><p>{project.notes}</p></div>
+    notes = <div><h4>Notes:</h4><p>{project.notes}</p></div>
   }
 
   if (project.startBy !== "") {
-    startBy = <div><h3>Start By:</h3><p>{project.startBy}</p></div>
+    startBy = <div><h4>Start By:</h4><p>{project.startBy}</p></div>
   }
 
   if (project.finishBy !== "") {
-    finishBy = <div><h3>Start By:</h3><p>{project.finishBy}</p></div>
+    finishBy = <div><h4>Start By:</h4><p>{project.finishBy}</p></div>
   }
 
   return (
     <div className='container'>
-      <h1 className='page-header'>{project.name}</h1>
-      {category}
-      {notes}
-      {startBy}
-      {finishBy}
+      <br></br>
+      <Panel>
+        <Panel.Heading>
+          <Panel.Title componentClass="h1"><b>{project.name}</b></Panel.Title>
+        </Panel.Heading>
+        <Panel.Body>
+          {category}
+          {notes}
+          {startBy}
+          {finishBy}
+        </Panel.Body>
+      </Panel>
+
     </div>
   )
 }
