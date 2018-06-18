@@ -4,3 +4,10 @@ export const addProject = project => {
     project: Object.assign({}, project)
   }
 }
+
+export const removeProject = projectId => {
+  return {
+    type: 'REMOVE_PROJECT',
+    projectId
+  }
+}
