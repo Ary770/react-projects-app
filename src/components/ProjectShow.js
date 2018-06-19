@@ -55,7 +55,9 @@ const ProjectShow = ({ project, removeProject }) => {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const project = state.projects.find(project => project.id === ownProps.match.params.projectId)
+  const project = state.projects.projects.find(project =>
+    project.id.toString() === ownProps.match.params.projectId
+  )
 
   if (project) {
     return { project }

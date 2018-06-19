@@ -3,8 +3,17 @@ import { BrowserRouter as Router, Route} from 'react-router-dom';
 import WelcomeTron from './components/WelcomeTron';
 import NavBar from './components/NavBar';
 import ProjectsPage from './components/ProjectsPage';
+import * as actions from './actions/fetchProjects';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
 class App extends Component {
+  componentDidMount() {
+    if (this.props.projects.length === 0) {
+      this.props.actions.fetchProjects();
+    }
+  }
+
   render() {
     return (
       <div>
@@ -20,4 +29,14 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return ({
+    projects: state.projects.projects
+  })
+}
+
+function mapDispatchToProps(dispatch) {
+  return {actions: bindActionCreators(actions, dispatch)}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -7,9 +7,8 @@ export default (state = {loading: false, projects: []}, action) => {
     case 'LOADING_PROJECTS':
       return Object.assign({}, state, {loading: true})
     case 'FETCH_PROJECTS':
-      debugger;
-      return {loading: false, projects: action.payload}
+      return {loading: false, projects: action.projects}
     default:
-      return state.projects;
+      return state;
   }
 }
