@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import Projects from './Projects';
 import ProjectShow from './ProjectShow';
 import CreateProject from './CreateProject';
-import * as actions from '../actions/fetchProjects';
-import { bindActionCreators } from 'redux';
+// import * as actions from '../actions/fetchProjects';
+// import { bindActionCreators } from 'redux';
 
 class ProjectsPage extends React.Component {
   // componentDidMount() {
