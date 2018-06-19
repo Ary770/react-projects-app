@@ -4,18 +4,36 @@ import { connect } from 'react-redux';
 import Projects from './Projects';
 import ProjectShow from './ProjectShow';
 import CreateProject from './CreateProject';
+import * as actions from '../actions/fetchProjects';
+import { bindActionCreators } from 'redux';
 
-const ProjectsPage = ({match, projects}) =>
-  <div>
-    <Projects projects={projects}/>
-    <Switch>
-      <Route path={`${match.url}/new`} component={CreateProject} />
-      <Route path={`${match.url}/:projectId`} component={ProjectShow}/>
-      <Route exact path={match.url} render={() => (
-        null
-      )}/>
-    </Switch>
-  </div>
+class ProjectsPage extends React.Component {
+  componentDidMount() {
+    if (this.props.projects.length === 0) {
+      console.log('in component did mount')
+      // this.props.actions.fetchProjects()
+    }
+  }
+
+
+  render() {
+    const {match, projects} = this.props;
+    return (
+      <div>
+        {projects.length === 0 ? <p className='container'>You don't have any projects...</p> :
+          <Projects projects={projects}/>
+        }
+        <Switch>
+          <Route path={`${match.url}/new`} component={CreateProject} />
+          <Route path={`${match.url}/:projectId`} component={ProjectShow}/>
+          <Route exact path={match.url} render={() => (
+            null
+          )}/>
+        </Switch>
+      </div>
+    )
+  }
+}
 
 const mapStateToProps = state => {
   return ({
@@ -23,4 +41,8 @@ const mapStateToProps = state => {
   })
 }
 
-export default connect(mapStateToProps)(ProjectsPage);
+function mapDispatchToProps(dispatch) {
+  return {actions: bindActionCreators(actions, dispatch)}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProjectsPage);

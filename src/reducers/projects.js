@@ -1,10 +1,15 @@
-export default (state = [], action) => {
+export default (state = {loading: false, projects: []}, action) => {
   switch (action.type) {
     case 'ADD_PROJECT':
-      return state.concat(action.project);
+      return state.projects.concat(action.project);
     case 'REMOVE_PROJECT':
-      return state.filter(project => project.id !== action.projectId);
+      return state.projects.filter(project => project.id !== action.projectId);
+    case 'LOADING_PROJECTS':
+      return Object.assign({}, state, {loading: true})
+    case 'FETCH_PROJECTS':
+      debugger;
+      return {loading: false, projects: action.payload}
     default:
-      return state;
+      return state.projects;
   }
 }
