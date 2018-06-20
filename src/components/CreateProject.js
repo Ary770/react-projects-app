@@ -17,11 +17,28 @@ class CreateProject extends React.Component {
     this.setState({ [event.target.name]: event.target.value });
   }
 
+  // handleOnSubmit = event => {
+  //   event.preventDefault();
+  //   const project = Object.assign({}, this.state, { id: uuid() });
+  //   this.props.addProject(project);
+  //   this.props.history.push('/projects');
+  // }
+
   handleOnSubmit = event => {
-    event.preventDefault();
-    const project = Object.assign({}, this.state, { id: uuid() });
-    this.props.addProject(project);
-    this.props.history.push('/projects');
+    event.preventDefault
+    const projectData = {
+      ...this.state
+    }
+    fetch('api/projects', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(projectData)
+    })
+    .then(res => res.json())
+    .then(res => console.log(res))
   }
 
   render() {
