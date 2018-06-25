@@ -3,7 +3,7 @@ import { Jumbotron } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 
 const WelcomeTron = () =>
-  <div className='container'>
+  <div>
     <Jumbotron>
       <h1>My Projects App!</h1>
       <p>

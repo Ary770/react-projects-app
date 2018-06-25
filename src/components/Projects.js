@@ -7,7 +7,7 @@ const Projects = (props) => {
   )
 
   return (
-    <div className='container'>
+    <div>
       {projects.length === 0 ? null : <h1>My projects</h1>}
       <ul>
         {projects}

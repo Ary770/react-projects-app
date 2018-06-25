@@ -1,24 +1,15 @@
 import React from 'react';
-import { Navbar, Nav, NavItem} from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 
 const NavBar = () => {
   return (
-    <Navbar>
-      <Navbar.Header>
-        <Navbar.Brand>
-          <NavLink to="/projects">My Projects</NavLink>
-        </Navbar.Brand>
-      </Navbar.Header>
-      <Nav>
-        <NavItem>
-          <NavLink to="/projects/new">New Project</NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink to="/categories">Categories</NavLink>
-        </NavItem>
-      </Nav>
-    </Navbar>
+    <nav className="page-header">
+      <ul className="nav nav-pills">
+        <li role="presentation" className="active"><NavLink to="/projects">My Projects</NavLink></li>
+        <li role="presentation"><NavLink to="/projects/new">New Project</NavLink></li>
+        <li role="presentation"><NavLink to="/categories">Categories</NavLink></li>
+      </ul>
+    </nav>
   );
 };
 

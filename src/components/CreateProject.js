@@ -1,6 +1,6 @@
 import React from 'react';
 import { ControlLabel, Button } from 'react-bootstrap';
-import uuid from 'uuid';
+// import uuid from 'uuid';
 import { connect } from 'react-redux';
 import { addProject } from '../actions/projects';
 
@@ -29,16 +29,6 @@ class CreateProject extends React.Component {
     const projectData = {
       ...this.state
     }
-    fetch('api/projects', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(projectData)
-    })
-    .then(res => res.json())
-    .then(res => console.log(res))
   }
 
   render() {

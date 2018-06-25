@@ -1,0 +1,3 @@
+- Restructure tree into components and containers
+- Incorporate post functionality to API
+- Develop categories component

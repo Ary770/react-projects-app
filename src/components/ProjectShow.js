@@ -47,7 +47,7 @@ const ProjectShow = ({ project, removeProject }) => {
   }
 
   return (
-    <div className='container'>
+    <div >
       <br></br>
       {panel}
     </div>
