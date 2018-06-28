@@ -2,7 +2,8 @@ import React from 'react';
 import { ControlLabel, Button } from 'react-bootstrap';
 // import uuid from 'uuid';
 import { connect } from 'react-redux';
-import { addProject } from '../actions/projects';
+import * as actions from '../actions/projects';
+import { bindActionCreators } from 'redux';
 
 class CreateProject extends React.Component {
   state = {
@@ -29,6 +30,7 @@ class CreateProject extends React.Component {
     const projectData = {
       ...this.state
     }
+    this.props.actions.postProject(projectData);
   }
 
   render() {
@@ -87,5 +89,8 @@ class CreateProject extends React.Component {
     )
   }
 }
+function mapDispatchToProps(dispatch) {
+  return {actions: bindActionCreators(actions, dispatch)}
+}
 
-export default connect(null, { addProject })(CreateProject);
+export default connect(null, mapDispatchToProps)(CreateProject);

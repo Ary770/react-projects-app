@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Panel } from 'react-bootstrap';
 import { removeProject } from '../actions/projects';
 
-const ProjectShow = ({ project, removeProject }) => {
+const ProjectShow = ({ project }) => {
   let category = null;
   let notes = null;
   let startBy = null;
