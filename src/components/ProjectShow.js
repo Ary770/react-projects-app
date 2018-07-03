@@ -16,19 +16,19 @@ const ProjectShow = ({ project }) => {
 
   if (project.id) {
     if (project.category.name !== null) {
-      category = <div><h4>Category:</h4><p>{project.category.name}</p></div>
+      category = <div><h3>Category</h3><p>{project.category.name}</p></div>
     }
 
     if (project.notes !== null) {
-      notes = <div><h4>Notes:</h4><p>{project.notes}</p></div>
+      notes = <div><h3>Notes</h3><p>{project.notes}</p></div>
     }
 
     if (project.start_by !== null) {
-      startBy = <div><h4>Start By:</h4><p>{project.start_by}</p></div>
+      startBy = <div><h3>Start By</h3><p>{project.start_by}</p></div>
     }
 
     if (project.start_by !== null) {
-      finishBy = <div><h4>Start By:</h4><p>{project.finish_by}</p></div>
+      finishBy = <div><h3>Start By</h3><p>{project.finish_by}</p></div>
     }
 
     panel = <Panel>
