@@ -4,7 +4,7 @@ import ProjectShow from './ProjectShow';
 
 const Projects = (props) => {
   const projects = props.projects.map(project =>
-    <h4 key={project.id}><li><a href='/'>{project.name}</a></li></h4>
+    <h4 key={project.id}><li><Link to={`/projects/${project.id}`}>{project.name}</Link></li></h4>
   )
 
   return (

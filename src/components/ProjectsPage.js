@@ -20,7 +20,13 @@ class ProjectsPage extends React.Component {
     return (
       <div>
         {projects.length === 0 ? null: <Projects projects={projects}/>}
-        <CreateProject/>
+        <Switch>
+          <Route path={`${match.url}/new`} component={CreateProject} />
+          <Route path={`${match.url}/:projectId`} component={ProjectShow}/>
+          <Route exact path={match.url} render={() => (
+            null
+          )}/>
+        </Switch>
       </div>
     )
   }

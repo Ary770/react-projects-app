@@ -10,7 +10,7 @@ const WelcomeTron = () =>
         Everyone has projects in life...why not have them all on an app that will help you organize and keep track of them!
       </p>
       <p>
-        <NavLink to='/projects/new' bsStyle="primary">Create New Project</NavLink>
+        <NavLink to='/projects/new'>Create New Project</NavLink>
       </p>
     </Jumbotron>
   </div>
