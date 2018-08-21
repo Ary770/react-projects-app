@@ -10,8 +10,12 @@ const ProjectShow = ({ project, removeProject }) => {
   let finishBy = null;
   let panel = null;
 
-  const handleOnClick = () => {
+  const handleDelete = () => {
     removeProject(project.id);
+  }
+
+  const handleComplete = () => {
+    // logic for setting projects as complete
   }
 
   if (project.id) {
@@ -33,15 +37,18 @@ const ProjectShow = ({ project, removeProject }) => {
 
     panel = <Panel>
               <Panel.Heading>
-                <Panel.Title componentClass="h1"><b>{project.name}</b></Panel.Title>
+                <Panel.Title componentClass="h1">
+                  <b>{project.name}</b>
+                </Panel.Title>
               </Panel.Heading>
               <Panel.Body>
                 {category}
                 {notes}
                 {startBy}
                 {finishBy}
-
-                <button className='btn btn-danger' onClick={handleOnClick}>Delete</button>
+                <br></br>
+                <button className='btn btn-success' onClick={handleComplete}>Done</button>
+                <button className='btn btn-danger pull-right' onClick={handleDelete}>Delete</button>
               </Panel.Body>
             </Panel>
   }
@@ -55,7 +62,8 @@ const ProjectShow = ({ project, removeProject }) => {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const project = state.projects.find(project => project.id === ownProps.match.params.projectId)
+  debugger
+  const project = state.projects.projects.find(project => project.id.toString() === ownProps.match.params.projectId)
 
   if (project) {
     return { project }

@@ -15,9 +15,9 @@ class ProjectsPage extends React.Component {
     }
   }
 
-
   render() {
     const {match, projects} = this.props;
+
     return (
       <div>
         {projects.length === 0 ? <p className='container'>You don't have any projects...</p> :
@@ -37,7 +37,7 @@ class ProjectsPage extends React.Component {
 
 const mapStateToProps = state => {
   return ({
-    projects: state.projects
+    projects: state.projects.projects
   })
 }
 

@@ -10,7 +10,7 @@ class App extends Component {
       <div>
         <Router>
           <div>
-            <NavBar/>
+            <NavBar />
             <Route exact path="/" component={WelcomeTron} />
             <Route path="/projects" component={ProjectsPage} />
           </div>

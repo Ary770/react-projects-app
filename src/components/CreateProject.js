@@ -11,6 +11,7 @@ class CreateProject extends React.Component {
     notes: '',
     startBy: '',
     finishBy: '',
+    completed: false
   }
 
   handleChange(event) {
