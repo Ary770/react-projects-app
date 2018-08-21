@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Route} from 'react-router-dom';
 import WelcomeTron from './components/WelcomeTron';
 import NavBar from './components/NavBar';
 import ProjectsPage from './components/ProjectsPage';
+import Categories from './components/Categories';
+import CreateProject from './components/CreateProject';
 
 class App extends Component {
   render() {
@@ -11,8 +13,11 @@ class App extends Component {
         <Router>
           <div>
             <NavBar />
-            <Route exact path="/" component={WelcomeTron} />
-            <Route path="/projects" component={ProjectsPage} />
+            <div className='container'>
+              <Route exact path="/" component={WelcomeTron} />
+              <Route path="/projects" component={ProjectsPage} />
+              <Route path="/categories" component={Categories} />
+            </div>
           </div>
         </Router>
       </div>

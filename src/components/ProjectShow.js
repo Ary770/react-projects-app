@@ -62,7 +62,6 @@ const ProjectShow = ({ project, removeProject }) => {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  debugger
   const project = state.projects.projects.find(project => project.id.toString() === ownProps.match.params.projectId)
 
   if (project) {

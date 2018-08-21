@@ -27,7 +27,7 @@ class CreateProject extends React.Component {
 
   render() {
     return (
-      <form onSubmit={e => this.handleOnSubmit(e)} className='container'>
+      <form onSubmit={e => this.handleOnSubmit(e)} >
           <h1>Create New Project</h1>
           <br></br>
           <ControlLabel >Project Name:</ControlLabel>

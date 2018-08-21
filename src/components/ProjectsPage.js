@@ -10,7 +10,6 @@ import { bindActionCreators } from 'redux';
 class ProjectsPage extends React.Component {
   componentDidMount() {
     if (this.props.projects.length === 0) {
-      console.log('in component did mount')
       // this.props.actions.fetchProjects()
     }
   }
@@ -24,7 +23,7 @@ class ProjectsPage extends React.Component {
           <Projects projects={projects}/>
         }
         <Switch>
-          <Route path={`${match.url}/new`} component={CreateProject} />
+          <Route exact path={`${match.url}/new`} component={CreateProject} />
           <Route path={`${match.url}/:projectId`} component={ProjectShow}/>
           <Route exact path={match.url} render={() => (
             null
